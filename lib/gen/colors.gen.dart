@@ -17,8 +17,8 @@ class AppColors {
   /// Color: #26FFFFFF
   static const Color controlDark = Color(0x26FFFFFF);
 
-  /// Color: #FFFFFF
-  static const Color controlLight = Color(0xFFFFFFFF);
+  /// Color: #000000
+  static const Color controlLight = Color(0xFF000000);
 
   /// Color: #3A2260
   static const Color darkBottom = Color(0xFF3A2260);
