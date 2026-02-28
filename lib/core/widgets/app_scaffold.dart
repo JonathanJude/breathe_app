@@ -4,8 +4,8 @@ import 'package:breathe_app/core/enums/backdrop_target.dart';
 import 'package:breathe_app/gen/colors.gen.dart';
 import 'package:flutter/material.dart';
 
-class SceneScaffold extends StatelessWidget {
-  const SceneScaffold({required this.child, super.key});
+class AppScaffold extends StatelessWidget {
+  const AppScaffold({required this.child, super.key});
 
   final Widget child;
 

@@ -1,7 +1,7 @@
 import 'package:breathe_app/app/router/app_router.dart';
 import 'package:breathe_app/core/theme/app_durations.dart';
+import 'package:breathe_app/core/widgets/app_scaffold.dart';
 import 'package:breathe_app/core/widgets/page_top_controls.dart';
-import 'package:breathe_app/core/widgets/scene_scaffold.dart';
 import 'package:breathe_app/features/breathing/domain/entities/breathing_phase.dart';
 import 'package:breathe_app/features/breathing/presentation/bloc/breathing_bloc.dart';
 import 'package:breathe_app/features/breathing/presentation/bloc/breathing_event.dart';
@@ -25,7 +25,7 @@ class SessionPage extends StatelessWidget {
       listener: (context, state) {
         context.go(AppRoutes.finish);
       },
-      child: SceneScaffold(
+      child: AppScaffold(
         child: BlocBuilder<BreathingBloc, BreathingState>(
           builder: (context, state) {
             Widget body;
