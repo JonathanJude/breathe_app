@@ -83,7 +83,16 @@ class BreathingActiveSessionContent extends StatelessWidget {
     return Column(
       key: ValueKey<String>('active-$phaseAnimationKey'),
       children: <Widget>[
-        SizedBox(height: isWeb ? 20 : 28),
+        SizedBox(height: isWeb ? 8 : 10),
+        Text(
+          "You're a natural",
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            fontSize: isWeb ? 16 : 12,
+            fontStyle: FontStyle.italic,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        SizedBox(height: isWeb ? 20 : 10),
         TweenAnimationBuilder<double>(
           key: ValueKey<String>(phaseAnimationKey),
           tween: Tween<double>(begin: bubbleStartScale, end: bubbleEndScale),

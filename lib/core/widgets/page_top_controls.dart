@@ -34,7 +34,9 @@ class PageTopControls extends StatelessWidget {
               else
                 const SizedBox(width: 56, height: 56),
               _ControlButton(
-                icon: isDark ? Icons.wb_sunny_outlined : Icons.nightlight_round,
+                icon: isDark
+                    ? Icons.wb_sunny_outlined
+                    : Icons.nightlight_outlined,
                 onTap: () {
                   context.read<ThemeCubit>().toggleTheme();
                 },
@@ -65,7 +67,7 @@ class _ControlButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: isDark
               ? AppColors.controlDark
-              : AppColors.controlLight.withValues(alpha: 0.4),
+              : AppColors.controlLight.withValues(alpha: 0.04),
           shape: BoxShape.circle,
         ),
         child: Icon(
