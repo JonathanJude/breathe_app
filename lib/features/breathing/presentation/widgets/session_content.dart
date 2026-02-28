@@ -129,6 +129,9 @@ class BreathingActiveSessionContent extends StatelessWidget {
         PrimaryButton(
           label: pauseLabel,
           onPressed: onPauseToggle,
+          isExpanded: false,
+          backgroundColor: isDark ? Color(0xFF823386) : Color(0xFFEFE6F0),
+          foregroundColor: isDark ? Color(0xFF141414) : Color(0xFF28002A),
           leadingIcon: isPaused
               ? Assets.icons.svg.lightPause.svg()
               : Assets.icons.svg.lightPlay.svg(),

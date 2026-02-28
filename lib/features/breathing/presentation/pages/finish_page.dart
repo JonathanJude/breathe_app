@@ -1,7 +1,7 @@
 import 'package:breathe_app/app/router/app_router.dart';
+import 'package:breathe_app/core/widgets/app_scaffold.dart';
 import 'package:breathe_app/core/widgets/page_top_controls.dart';
 import 'package:breathe_app/core/widgets/primary_button.dart';
-import 'package:breathe_app/core/widgets/scene_scaffold.dart';
 import 'package:breathe_app/features/breathing/presentation/bloc/breathing_bloc.dart';
 import 'package:breathe_app/features/breathing/presentation/bloc/breathing_event.dart';
 import 'package:breathe_app/features/breathing/presentation/widgets/app_pallete.dart';
@@ -21,7 +21,7 @@ class FinishPage extends StatelessWidget {
     final isWeb = MediaQuery.sizeOf(context).width >= 900;
     final palette = context.appPallete;
 
-    return SceneScaffold(
+    return AppScaffold(
       child: SingleChildScrollView(
         padding: EdgeInsets.fromLTRB(
           isWeb ? 24 : 16,
