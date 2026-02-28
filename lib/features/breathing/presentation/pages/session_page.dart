@@ -38,12 +38,7 @@ class SessionPage extends StatelessWidget {
               if (snapshot == null) {
                 body = Center(
                   key: const ValueKey<String>('start-session'),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      context.read<BreathingBloc>().add(const StartSession());
-                    },
-                    child: const Text('Start session'),
-                  ),
+                  child: CircularProgressIndicator(),
                 );
               } else {
                 final descriptor = snapshot.currentPhase.descriptor;

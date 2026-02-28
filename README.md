@@ -1,16 +1,52 @@
-# breathe_app
+# Breathe App
 
-A new Flutter project.
+A box-breathing app built with Flutter (mobile + web).  
+Users can configure breathing pace, rounds, advanced phase timings, sound cues, and run guided sessions with animated breathing flow.
 
-## Getting Started
+## Architecture
 
-This project is a starting point for a Flutter application.
+The app uses a **feature-first Clean Architecture** structure:
 
-A few resources to get you started if this is your first Flutter project:
+- `presentation`: pages, widgets, BLoC/Cubit
+- `domain`: entities, repository contracts, use cases
+- `data`: datasource/models/repository implementations
+- `core`: shared services (DI, persistence, audio, theme, reusable widgets)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Main feature lives under:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- `lib/features/breathing/`
+
+## State Management
+
+State is managed with **BLoC/Cubit**:
+
+- `BreathingBloc`: session flow, timing, phase transitions, progress, persistence sync
+- `ThemeCubit`: light/dark mode state + persistence
+
+Dependencies are wired with **GetIt**.
+
+## Run the App
+
+1. Install dependencies:
+
+```bash
+flutter pub get
+```
+
+2. Run on mobile/emulator:
+
+```bash
+flutter run
+```
+
+3. Run on web:
+
+```bash
+flutter run -d chrome
+```
+
+4. Build web release:
+
+```bash
+flutter build web --release
+```
