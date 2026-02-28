@@ -14,6 +14,7 @@ class PrimaryButton extends StatelessWidget {
     this.textStyle,
     this.iconSpacing = 10,
     this.isExpanded = true,
+    this.textColor,
   });
 
   final String label;
@@ -27,6 +28,7 @@ class PrimaryButton extends StatelessWidget {
   final TextStyle? textStyle;
   final double iconSpacing;
   final bool isExpanded;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +61,7 @@ class PrimaryButton extends StatelessWidget {
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
                   fontFamily: 'Quicksand',
+                  color: textColor,
                 ),
               ),
               if (trailingIcon != null) ...<Widget>[
