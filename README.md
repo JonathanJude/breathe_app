@@ -4,6 +4,7 @@ A box-breathing app built with Flutter (mobile + web).
 Users can configure breathing pace, rounds, advanced phase timings, sound cues, and run guided sessions with animated breathing flow.
 
 App Overview: https://www.loom.com/share/9f8bdf49f0cc45f1b8473489350c7856 
+Codebase & Architecure rundown: https://www.loom.com/share/e508385db1b343e5b5111e03886ba02f 
 
 ## Architecture
 
