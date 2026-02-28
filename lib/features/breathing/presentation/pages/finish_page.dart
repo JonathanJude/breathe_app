@@ -94,6 +94,7 @@ class FinishPage extends StatelessWidget {
                     label: "Back to set up",
                     isExpanded: false,
                     backgroundColor: palette.backToSetupBgColor,
+                    foregroundColor: palette.backToSetupTextColor,
                     onPressed: () => context.go(AppRoutes.setup),
                   ),
                 ),
