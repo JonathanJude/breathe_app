@@ -1,8 +1,8 @@
 import 'package:breathe_app/gen/colors.gen.dart';
 import 'package:flutter/material.dart';
 
-class SetupPalette {
-  const SetupPalette._({
+class AppPallete {
+  const AppPallete._({
     required this.title,
     required this.pageTitleColor,
     required this.subtitle,
@@ -24,8 +24,9 @@ class SetupPalette {
     required this.primaryButton,
     required this.primaryButtonText,
     required this.secondaryButton,
-    required this.breathDurationOptions,
     required this.showStartIcon,
+    required this.backToSetupBgColor,
+    required this.backToSetupTextColor,
   });
 
   final Color title;
@@ -49,12 +50,13 @@ class SetupPalette {
   final Color primaryButton;
   final Color primaryButtonText;
   final Color secondaryButton;
-  final List<int> breathDurationOptions;
   final bool showStartIcon;
+  final Color backToSetupBgColor;
+  final Color backToSetupTextColor;
 
-  factory SetupPalette.fromTheme(Brightness brightness) {
+  factory AppPallete.fromBrightness(Brightness brightness) {
     if (brightness == Brightness.dark) {
-      return const SetupPalette._(
+      return const AppPallete._(
         title: AppColors.textDark,
         pageTitleColor: AppColors.textDark,
         subtitle: Color(0xFF9E93B9),
@@ -76,12 +78,13 @@ class SetupPalette {
         primaryButton: Color(0xFF8A3E99),
         primaryButtonText: Color(0xFFFFFFFF),
         secondaryButton: Color(0x58FFFFFF),
-        breathDurationOptions: <int>[3, 4, 5, 10],
+        backToSetupBgColor: Color(0xFF424242),
+        backToSetupTextColor: Color(0xFFFFFFFF),
         showStartIcon: false,
       );
     }
 
-    return const SetupPalette._(
+    return const AppPallete._(
       title: Color(0xFF1D1A22),
       pageTitleColor: Color(0xFF6B0A72),
       subtitle: AppColors.mutedLight,
@@ -103,8 +106,17 @@ class SetupPalette {
       primaryButton: AppColors.primaryButton,
       primaryButtonText: AppColors.onPrimaryButton,
       secondaryButton: AppColors.secondaryButtonLight,
-      breathDurationOptions: <int>[3, 4, 5, 6],
+      backToSetupBgColor: Color(0xFFF5F5F5),
+      backToSetupTextColor: Color(0xFF141414),
       showStartIcon: true,
     );
   }
+
+  static AppPallete of(BuildContext context) {
+    return AppPallete.fromBrightness(Theme.of(context).brightness);
+  }
+}
+
+extension AppPalleteBuildContextX on BuildContext {
+  AppPallete get appPallete => AppPallete.of(this);
 }

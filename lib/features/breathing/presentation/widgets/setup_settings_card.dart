@@ -1,11 +1,10 @@
-import 'package:breathe_app/features/setup/widgets/phase_stepper_row.dart';
-import 'package:breathe_app/features/setup/widgets/setup_option_chip.dart';
-import 'package:breathe_app/features/setup/widgets/setup_palette.dart';
+import 'package:breathe_app/features/breathing/presentation/widgets/phase_stepper_row.dart';
+import 'package:breathe_app/features/breathing/presentation/widgets/setup_option_chip.dart';
+import 'package:breathe_app/features/breathing/presentation/widgets/app_pallete.dart';
 import 'package:flutter/material.dart';
 
 class SetupSettingsCard extends StatelessWidget {
   const SetupSettingsCard({
-    required this.palette,
     required this.breathDurations,
     required this.selectedBreathDuration,
     required this.roundOptions,
@@ -21,7 +20,6 @@ class SetupSettingsCard extends StatelessWidget {
     super.key,
   });
 
-  final SetupPalette palette;
   final List<int> breathDurations;
   final int selectedBreathDuration;
   final List<int> roundOptions;
@@ -37,6 +35,8 @@ class SetupSettingsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.appPallete;
+
     return Container(
       padding: const EdgeInsets.fromLTRB(18, 24, 18, 20),
       decoration: BoxDecoration(
@@ -51,7 +51,6 @@ class SetupSettingsCard extends StatelessWidget {
           _SectionTitle(
             title: 'Breath duration',
             subtitle: 'Seconds per phase',
-            palette: palette,
           ),
           const SizedBox(height: 14),
           _OptionRow<int>(
@@ -59,13 +58,11 @@ class SetupSettingsCard extends StatelessWidget {
             selectedValue: selectedBreathDuration,
             labelBuilder: (value) => '${value}s',
             onTap: onBreathDurationSelected,
-            palette: palette,
           ),
           _Divider(color: palette.divider),
           _SectionTitle(
             title: 'Rounds',
             subtitle: 'Full box breathing cycles',
-            palette: palette,
           ),
           const SizedBox(height: 14),
           _OptionRow<int>(
@@ -73,7 +70,6 @@ class SetupSettingsCard extends StatelessWidget {
             selectedValue: selectedRound,
             labelBuilder: (value) => '$value ${_roundLabel(value)}',
             onTap: onRoundSelected,
-            palette: palette,
           ),
           _Divider(color: palette.divider),
           InkWell(
@@ -87,7 +83,6 @@ class SetupSettingsCard extends StatelessWidget {
                     child: _SectionTitle(
                       title: 'Advanced timing',
                       subtitle: 'Set different durations for each phase',
-                      palette: palette,
                     ),
                   ),
                   Icon(
@@ -109,7 +104,6 @@ class SetupSettingsCard extends StatelessWidget {
                 child: PhaseStepperRow(
                   label: entry.key,
                   value: entry.value,
-                  palette: palette,
                   onDecrement: () => onAdjustPhase(entry.key, -1),
                   onIncrement: () => onAdjustPhase(entry.key, 1),
                 ),
@@ -124,7 +118,6 @@ class SetupSettingsCard extends StatelessWidget {
                 child: _SectionTitle(
                   title: 'Sound',
                   subtitle: 'Gentle chime between phases',
-                  palette: palette,
                 ),
               ),
               const SizedBox(width: 14),
@@ -163,15 +156,12 @@ class _OptionRow<T> extends StatelessWidget {
     required this.selectedValue,
     required this.labelBuilder,
     required this.onTap,
-    required this.palette,
   });
 
   final List<T> values;
   final T selectedValue;
   final String Function(T value) labelBuilder;
   final ValueChanged<T> onTap;
-  final SetupPalette palette;
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -185,7 +175,6 @@ class _OptionRow<T> extends StatelessWidget {
                 child: SetupOptionChip(
                   label: labelBuilder(value),
                   selected: selected,
-                  palette: palette,
                   onTap: () => onTap(value),
                 ),
               );
@@ -200,15 +189,15 @@ class _SectionTitle extends StatelessWidget {
   const _SectionTitle({
     required this.title,
     required this.subtitle,
-    required this.palette,
   });
 
   final String title;
   final String subtitle;
-  final SetupPalette palette;
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.appPallete;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[

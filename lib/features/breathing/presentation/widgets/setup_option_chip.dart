@@ -1,22 +1,22 @@
-import 'package:breathe_app/features/setup/widgets/setup_palette.dart';
+import 'package:breathe_app/features/breathing/presentation/widgets/app_pallete.dart';
 import 'package:flutter/material.dart';
 
 class SetupOptionChip extends StatelessWidget {
   const SetupOptionChip({
     required this.label,
     required this.selected,
-    required this.palette,
     required this.onTap,
     super.key,
   });
 
   final String label;
   final bool selected;
-  final SetupPalette palette;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.appPallete;
+
     return InkWell(
       borderRadius: BorderRadius.circular(20),
       onTap: onTap,

@@ -12,7 +12,21 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart' as _svg;
+import 'package:lottie/lottie.dart' as _lottie;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
+
+class $AssetsAudioGen {
+  const $AssetsAudioGen();
+
+  /// File path: assets/audio/.gitkeep
+  String get aGitkeep => 'assets/audio/.gitkeep';
+
+  /// File path: assets/audio/chime-sound.mp3
+  String get chimeSound => 'assets/audio/chime-sound.mp3';
+
+  /// List of all assets
+  List<String> get values => [aGitkeep, chimeSound];
+}
 
 class $AssetsIconsGen {
   const $AssetsIconsGen();
@@ -28,14 +42,36 @@ class $AssetsImagesGen {
   $AssetsImagesBackgroundGen get background => const $AssetsImagesBackgroundGen();
 }
 
+class $AssetsLottieGen {
+  const $AssetsLottieGen();
+
+  /// File path: assets/lottie/.gitkeep
+  String get aGitkeep => 'assets/lottie/.gitkeep';
+
+  /// File path: assets/lottie/checkmark.lottie
+  LottieGenImage get checkmark => const LottieGenImage('assets/lottie/checkmark.lottie');
+
+  /// List of all assets
+  List<dynamic> get values => [aGitkeep, checkmark];
+}
+
 class $AssetsIconsSvgGen {
   const $AssetsIconsSvgGen();
+
+  /// File path: assets/icons/svg/dark_pause.svg
+  SvgGenImage get darkPause => const SvgGenImage('assets/icons/svg/dark_pause.svg');
 
   /// File path: assets/icons/svg/fast-wind.svg
   SvgGenImage get fastWind => const SvgGenImage('assets/icons/svg/fast-wind.svg');
 
+  /// File path: assets/icons/svg/light_pause.svg
+  SvgGenImage get lightPause => const SvgGenImage('assets/icons/svg/light_pause.svg');
+
+  /// File path: assets/icons/svg/light_play.svg
+  SvgGenImage get lightPlay => const SvgGenImage('assets/icons/svg/light_play.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [fastWind];
+  List<SvgGenImage> get values => [darkPause, fastWind, lightPause, lightPlay];
 }
 
 class $AssetsImagesBackgroundGen {
@@ -109,8 +145,10 @@ class $AssetsImagesBackgroundGen {
 class Assets {
   const Assets._();
 
+  static const $AssetsAudioGen audio = $AssetsAudioGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLottieGen lottie = $AssetsLottieGen();
 }
 
 class AssetGenImage {
@@ -255,6 +293,72 @@ class SvgGenImage {
       colorFilter: colorFilter ?? (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
       clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,
+    );
+  }
+
+  String get path => _assetName;
+
+  String get keyName => _assetName;
+}
+
+class LottieGenImage {
+  const LottieGenImage(this._assetName, {this.flavors = const {}});
+
+  final String _assetName;
+  final Set<String> flavors;
+
+  _lottie.LottieBuilder lottie({
+    Animation<double>? controller,
+    bool? animate,
+    _lottie.FrameRate? frameRate,
+    bool? repeat,
+    bool? reverse,
+    _lottie.LottieDelegates? delegates,
+    _lottie.LottieOptions? options,
+    void Function(_lottie.LottieComposition)? onLoaded,
+    _lottie.LottieImageProviderFactory? imageProviderFactory,
+    Key? key,
+    AssetBundle? bundle,
+    Widget Function(BuildContext, Widget, _lottie.LottieComposition?)? frameBuilder,
+    ImageErrorWidgetBuilder? errorBuilder,
+    double? width,
+    double? height,
+    BoxFit? fit,
+    AlignmentGeometry? alignment,
+    String? package,
+    bool? addRepaintBoundary,
+    FilterQuality? filterQuality,
+    void Function(String)? onWarning,
+    _lottie.LottieDecoder? decoder,
+    _lottie.RenderCache? renderCache,
+    bool? backgroundLoading,
+  }) {
+    return _lottie.Lottie.asset(
+      _assetName,
+      controller: controller,
+      animate: animate,
+      frameRate: frameRate,
+      repeat: repeat,
+      reverse: reverse,
+      delegates: delegates,
+      options: options,
+      onLoaded: onLoaded,
+      imageProviderFactory: imageProviderFactory,
+      key: key,
+      bundle: bundle,
+      frameBuilder: frameBuilder,
+      errorBuilder: errorBuilder,
+      width: width,
+      height: height,
+      fit: fit,
+      alignment: alignment,
+      package: package,
+      addRepaintBoundary: addRepaintBoundary,
+      filterQuality: filterQuality,
+      onWarning: onWarning,
+      decoder: decoder,
+      renderCache: renderCache,
+      backgroundLoading: backgroundLoading,
     );
   }
 

@@ -35,7 +35,9 @@ class PageTopControls extends StatelessWidget {
                 const SizedBox(width: 56, height: 56),
               _ControlButton(
                 icon: isDark ? Icons.wb_sunny_outlined : Icons.nightlight_round,
-                onTap: context.read<ThemeCubit>().toggleTheme,
+                onTap: () {
+                  context.read<ThemeCubit>().toggleTheme();
+                },
               ),
             ],
           ),

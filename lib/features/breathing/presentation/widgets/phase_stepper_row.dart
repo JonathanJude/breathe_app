@@ -1,11 +1,10 @@
-import 'package:breathe_app/features/setup/widgets/setup_palette.dart';
+import 'package:breathe_app/features/breathing/presentation/widgets/app_pallete.dart';
 import 'package:flutter/material.dart';
 
 class PhaseStepperRow extends StatelessWidget {
   const PhaseStepperRow({
     required this.label,
     required this.value,
-    required this.palette,
     required this.onDecrement,
     required this.onIncrement,
     super.key,
@@ -13,12 +12,13 @@ class PhaseStepperRow extends StatelessWidget {
 
   final String label;
   final int value;
-  final SetupPalette palette;
   final VoidCallback onDecrement;
   final VoidCallback onIncrement;
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.appPallete;
+
     return Container(
       height: 70,
       padding: const EdgeInsets.symmetric(horizontal: 18),
