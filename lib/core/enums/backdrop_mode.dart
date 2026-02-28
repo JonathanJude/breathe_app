@@ -1,0 +1,1 @@
+enum BackdropMode { light, dark }
