@@ -1,0 +1,1 @@
+enum BackdropTarget { mobile, web }
